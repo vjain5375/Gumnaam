@@ -1,0 +1,63 @@
+[
+  {
+    "id": "manoj-tripathi",
+    "name": "Manoj Tripathi",
+    "role": "Security Guard",
+    "department": "security",
+    "yearsAtCampus": 6,
+    "shortBio": "Manoj has stood at the main gate for six years. He remembers students by the way they walk, long before he learns their names.",
+    "quote": "Some students I know just by the way they walk.",
+    "consentStatus": false,
+    "featured": true
+  },
+  {
+    "id": "santosh-kumar",
+    "name": "Santosh Kumar",
+    "role": "Housekeeping Staff",
+    "department": "cleaning",
+    "yearsAtCampus": 4,
+    "shortBio": "Santosh starts work before most students wake up. By the time the first classes begin, the corridors he cleaned are already being used.",
+    "quote": "The campus is already awake before anyone sees it.",
+    "consentStatus": false,
+    "featured": true
+  },
+  {
+    "id": "devsharan",
+    "name": "Devsharan",
+    "role": "Carpenter",
+    "department": "maintenance",
+    "age": 46,
+    "address": "Raebareli",
+    "yearsAtCampus": 15,
+    "image": "/devsharan.jpg",
+    "shortBio": "Devsharan has been working here since 2011, mostly in the hostel blocks, fixing windows, doors, and whatever needs repairing.",
+    "quote": "Tools go missing all the time here. You leave a plier in the corridor for a minute, and it just disappears.",
+    "consentStatus": false,
+    "featured": true
+  },
+  {
+    "id": "vicky-kumar",
+    "name": "Vicky Kumar",
+    "role": "Night Canteen Staff",
+    "department": "canteen",
+    "age": 28,
+    "yearsAtCampus": 4,
+    "shortBio": "Vicky runs the counter after most of the campus has gone quiet, when the only students still around are the ones who stayed up too late.",
+    "quote": "I know their orders before they know they're hungry.",
+    "consentStatus": false,
+    "featured": true
+  },
+  {
+    "id": "satya-mitra-arya",
+    "name": "Satya Mitra Arya",
+    "role": "Mess Worker",
+    "department": "canteen",
+    "age": 52,
+    "address": "Azamgarh",
+    "yearsAtCampus": 5,
+    "shortBio": "Satya Mitra Arya is famous across the campus as the 'Momos and Chai waale Uncle'. He serves the night canteen with warmth.",
+    "quote": "Momos/chai waale uncle ke naam se famous hai.",
+    "consentStatus": false,
+    "featured": true
+  }
+]

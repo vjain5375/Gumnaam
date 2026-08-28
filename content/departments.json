@@ -1,0 +1,30 @@
+[
+  {
+    "id": "security",
+    "name": "Security",
+    "tagline": "People who watch the gates.",
+    "description": "They open the campus before the first class and close it long after the last light goes out.",
+    "people": ["manoj-tripathi"]
+  },
+  {
+    "id": "cleaning",
+    "name": "Cleaning & Housekeeping",
+    "tagline": "People who make the campus ready before we arrive.",
+    "description": "Every corridor, classroom and hostel wing is theirs before it is anyone else's.",
+    "people": ["santosh-kumar"]
+  },
+  {
+    "id": "maintenance",
+    "name": "Maintenance & Repair",
+    "tagline": "People we notice mostly when something breaks.",
+    "description": "Wires, water, and worn out hinges, they keep the campus quietly working.",
+    "people": ["devsharan"]
+  },
+  {
+    "id": "canteen",
+    "name": "Canteen",
+    "tagline": "People behind our everyday meals.",
+    "description": "From the first breakfast to the last order at night, someone here is always keeping the campus fed.",
+    "people": ["vicky-kumar", "satya-mitra-arya"]
+  }
+]
