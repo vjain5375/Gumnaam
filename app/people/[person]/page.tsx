@@ -4,6 +4,7 @@ import { notFound } from "next/navigation";
 import Container from "@/components/shared/Container";
 import Button from "@/components/shared/Button";
 import { people, getPerson, getDepartment } from "@/lib/data";
+import InteractiveProfile from "@/components/people/InteractiveProfile";
 
 export function generateStaticParams() {
   return people.map((p) => ({ person: p.id }));
@@ -71,31 +72,7 @@ export default async function PersonPage({
           </p>
         )}
 
-        {person.quote && (
-          <p className="mt-10 border-l border-border pl-6 font-serif text-2xl leading-snug text-foreground italic md:pl-10 md:text-3xl">
-            &ldquo;{person.quote}&rdquo;
-          </p>
-        )}
-
-        <p className="mt-10 max-w-2xl text-lg leading-relaxed text-muted">
-          {person.shortBio}
-        </p>
-
-        <div className="mt-16 rounded-2xl border border-border bg-background-alt p-8 text-base text-muted">
-          <p className="text-foreground">This profile is still in progress.</p>
-          <p className="mt-2 leading-relaxed">
-            The full documentary video, interview transcript and photo
-            gallery for {person.name.split(" ")[0]} will appear here once
-            filming and consent review are complete.
-          </p>
-        </div>
-
-        <div className="mt-16 flex items-center justify-between border-t border-border pt-10">
-          <Button href="/people" variant="text">
-            All people
-          </Button>
-          <Button href={`/people/${next.id}`}>Next person</Button>
-        </div>
+        <InteractiveProfile person={person} nextPersonId={next.id} />
       </Container>
     </div>
   );
