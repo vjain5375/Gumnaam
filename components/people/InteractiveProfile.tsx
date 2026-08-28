@@ -59,16 +59,22 @@ export default function InteractiveProfile({ person, nextPersonId }: { person: a
       {/* Video Section */}
       <section>
         <div className="relative rounded-2xl overflow-hidden bg-black/5 border border-border aspect-video flex items-center justify-center group">
-          <video 
-            ref={videoRef}
-            src={person.videoUrl || "https://www.w3schools.com/html/mov_bbb.mp4"} 
-            controls 
-            className="w-full h-full object-cover"
-          />
+          {person.videoUrl ? (
+            <video 
+              ref={videoRef}
+              src={person.videoUrl} 
+              controls 
+              className="w-full h-full object-cover"
+            />
+          ) : (
+            <div className="text-center p-8">
+              <h3 className="text-xl text-foreground font-serif mb-2">Documentary Video Coming Soon</h3>
+              <p className="text-muted">The full interview is currently in post-production.</p>
+            </div>
+          )}
         </div>
         
-        <div className="mt-4 flex justify-between items-center">
-          <p className="text-sm text-muted">Documentary excerpt (Sample)</p>
+        <div className="mt-4 flex justify-end items-center">
           <Button href={`/people/${nextPersonId}`} variant="text">
             Skip to next worker &rarr;
           </Button>
