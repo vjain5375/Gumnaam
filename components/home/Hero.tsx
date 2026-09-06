@@ -15,7 +15,7 @@ export default function Hero() {
         initial={{ opacity: 0, x: 20 }}
         animate={{ opacity: 1, x: 0 }}
         transition={{ duration: 1.2, ease: "easeOut" }}
-        className="pointer-events-none absolute top-1/2 right-[-4%] hidden h-[85vh] w-[42vw] -translate-y-1/2 text-accent md:block"
+        className="pointer-events-none absolute top-1/2 right-[-4%] hidden h-[85vh] w-[42vw] -translate-y-1/2 text-accent/20 opacity-40 md:block z-0"
       >
         <GateMotif className="h-full w-full" />
       </motion.div>
@@ -52,14 +52,14 @@ export default function Hero() {
           itne paas, phir bhi anjaan
         </motion.p>
 
-        {/* Drone Shot Video Embed */}
+        {/* Drone Shot Video - Full Screen Cinematic Embed */}
         <motion.div
-          initial={{ opacity: 0, y: 20 }}
+          initial={{ opacity: 0, y: 24 }}
           animate={{ opacity: 1, y: 0 }}
-          transition={{ duration: 0.9, ease: "easeOut", delay: 0.3 }}
-          className="mt-8 relative w-full max-w-4xl overflow-hidden rounded-2xl border border-border bg-black/60 shadow-2xl backdrop-blur-sm"
+          transition={{ duration: 0.9, ease: "easeOut", delay: 0.28 }}
+          className="relative mt-8 w-full overflow-hidden rounded-2xl border border-border/70 bg-black/80 shadow-2xl backdrop-blur-md md:rounded-3xl"
         >
-          <div className="relative aspect-video w-full overflow-hidden">
+          <div className="relative w-full h-[55vh] sm:h-[68vh] md:h-[80vh] max-h-[850px] overflow-hidden">
             <video
               src="https://res.cloudinary.com/dzt9fr0cw/video/upload/v1788692055/drone_shot_6_dd1fc2.mp4"
               autoPlay
@@ -69,9 +69,9 @@ export default function Hero() {
               controls
               className="h-full w-full object-cover"
             />
-            <div className="pointer-events-none absolute top-3 left-3 flex items-center gap-2 rounded-full bg-black/70 px-3 py-1 text-[11px] tracking-wider text-white/90 backdrop-blur-md">
+            <div className="pointer-events-none absolute top-4 left-4 flex items-center gap-2.5 rounded-full bg-black/75 px-3.5 py-1.5 text-[11px] tracking-wider text-white/90 backdrop-blur-md border border-white/10">
               <span className="h-2 w-2 rounded-full bg-red-500 animate-pulse" />
-              <span className="font-mono text-[10px] uppercase">Campus Aerial Archive // Drone Shot</span>
+              <span className="font-mono text-[11px] uppercase">Campus Aerial Archive // Drone Shot</span>
             </div>
           </div>
         </motion.div>
