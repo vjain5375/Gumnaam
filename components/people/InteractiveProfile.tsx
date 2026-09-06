@@ -64,6 +64,8 @@ export default function InteractiveProfile({ person, nextPersonId }: { person: a
               ref={videoRef}
               src={person.videoUrl} 
               controls 
+              controlsList="nodownload"
+              onContextMenu={(e) => e.preventDefault()}
               className="w-full h-full object-cover"
             />
           ) : (

@@ -75,6 +75,8 @@ export default function Hero() {
               muted
               playsInline
               controls
+              controlsList="nodownload"
+              onContextMenu={(e) => e.preventDefault()}
               className="h-full w-full object-cover"
             />
             <div className="pointer-events-none absolute top-4 left-4 flex items-center gap-2.5 rounded-full bg-black/75 px-3.5 py-1.5 text-[11px] tracking-wider text-white/90 backdrop-blur-md border border-white/10">
