@@ -52,10 +52,34 @@ export default function Hero() {
           itne paas, phir bhi anjaan
         </motion.p>
 
+        {/* Drone Shot Video Embed */}
+        <motion.div
+          initial={{ opacity: 0, y: 20 }}
+          animate={{ opacity: 1, y: 0 }}
+          transition={{ duration: 0.9, ease: "easeOut", delay: 0.3 }}
+          className="mt-8 relative w-full max-w-4xl overflow-hidden rounded-2xl border border-border bg-black/60 shadow-2xl backdrop-blur-sm"
+        >
+          <div className="relative aspect-video w-full overflow-hidden">
+            <video
+              src="https://res.cloudinary.com/dzt9fr0cw/video/upload/v1788692055/drone_shot_6_dd1fc2.mp4"
+              autoPlay
+              loop
+              muted
+              playsInline
+              controls
+              className="h-full w-full object-cover"
+            />
+            <div className="pointer-events-none absolute top-3 left-3 flex items-center gap-2 rounded-full bg-black/70 px-3 py-1 text-[11px] tracking-wider text-white/90 backdrop-blur-md">
+              <span className="h-2 w-2 rounded-full bg-red-500 animate-pulse" />
+              <span className="font-mono text-[10px] uppercase">Campus Aerial Archive // Drone Shot</span>
+            </div>
+          </div>
+        </motion.div>
+
         <motion.p
           initial={{ opacity: 0, y: 14 }}
           animate={{ opacity: 1, y: 0 }}
-          transition={{ duration: 0.8, ease: "easeOut", delay: 0.34 }}
+          transition={{ duration: 0.8, ease: "easeOut", delay: 0.4 }}
           className="mt-8 max-w-lg text-lg leading-relaxed text-muted"
         >
           Every day, they help keep the campus moving. Most days, we never
