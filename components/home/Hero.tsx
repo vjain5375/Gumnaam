@@ -1,25 +1,33 @@
 "use client";
 
+import { useState, useEffect } from "react";
 import { motion } from "framer-motion";
 import Button from "@/components/shared/Button";
-import GateMotif from "@/components/shared/GateMotif";
 
 export default function Hero() {
+  const [timecode, setTimecode] = useState("00:00:04:12");
+
+  useEffect(() => {
+    let frame = 12;
+    let sec = 4;
+    const interval = setInterval(() => {
+      frame += 1;
+      if (frame >= 30) {
+        frame = 0;
+        sec += 1;
+      }
+      const s = String(sec).padStart(2, "0");
+      const f = String(frame).padStart(2, "0");
+      setTimecode(`00:00:${s}:${f}`);
+    }, 66); // ~15-20fps vintage camera ticker
+
+    return () => clearInterval(interval);
+  }, []);
+
   return (
     <section className="relative min-h-screen overflow-hidden bg-background">
       <div className="absolute inset-0 bg-[#0f0e0d]" />
       <div className="grain absolute inset-0" />
-
-      {/* gate motif, anchored right, fades into the frame */}
-      <motion.div
-        initial={{ opacity: 0, x: 20 }}
-        animate={{ opacity: 1, x: 0 }}
-        transition={{ duration: 1.2, ease: "easeOut" }}
-        className="pointer-events-none absolute top-1/2 right-[-4%] hidden h-[85vh] w-[42vw] -translate-y-1/2 text-accent/20 opacity-40 md:block z-0"
-      >
-        <GateMotif className="h-full w-full" />
-      </motion.div>
-      <div className="pointer-events-none absolute inset-y-0 right-0 hidden w-[45vw] bg-gradient-to-l from-[#0f0e0d] via-[#0f0e0d]/40 to-transparent md:block" />
 
       <div className="relative z-10 mx-auto flex min-h-screen w-full max-w-[1600px] flex-col justify-center px-6 pt-24 pb-24 md:px-16">
         <motion.div
@@ -28,10 +36,10 @@ export default function Hero() {
           transition={{ duration: 0.6 }}
           className="mb-8 flex items-center gap-2 text-[11px] text-muted/80"
         >
-          <span className="rec-dot h-1.5 w-1.5 rounded-full bg-accent" />
-          <span className="timecode">REC</span>
-          <span className="timecode">00:00:04:12</span>
-          <span className="text-muted/50">campus archive, file 001</span>
+          <span className="rec-dot h-2 w-2 rounded-full bg-red-500 shadow-[0_0_8px_rgba(239,68,68,0.7)]" />
+          <span className="timecode font-mono font-bold tracking-wider text-red-400/90">REC</span>
+          <span className="timecode font-mono text-foreground/90">{timecode}</span>
+          <span className="text-muted/50">| campus archive, file 001</span>
         </motion.div>
 
         <motion.h1
