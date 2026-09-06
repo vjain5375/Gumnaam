@@ -32,14 +32,18 @@ export default function Hero() {
           initial={{ opacity: 0 }}
           animate={{ opacity: 1 }}
           transition={{ duration: 0.6 }}
-          className="mb-8 flex items-center gap-2 text-[11px] text-muted/80"
+          className="mb-8 flex flex-wrap items-center gap-3 text-sm md:text-base text-muted/90 font-mono"
         >
-          <span className={`rec-dot h-2 w-2 rounded-full ${isLive ? "bg-red-500 shadow-[0_0_8px_rgba(239,68,68,0.7)]" : "bg-yellow-500"}`} />
-          <span className={`timecode font-mono font-bold tracking-wider ${isLive ? "text-red-400/90" : "text-yellow-400/90"}`}>
+          <span className={`rec-dot h-3.5 w-3.5 rounded-full ${isLive ? "bg-red-500 shadow-[0_0_14px_rgba(239,68,68,1)] ring-2 ring-red-500/30" : "bg-yellow-500 shadow-[0_0_10px_rgba(234,179,8,0.8)]"}`} />
+          <span className={`timecode font-mono font-black tracking-widest text-sm md:text-base ${isLive ? "text-red-400" : "text-yellow-400"}`}>
             {isLive ? "REC" : "PAUSED"}
           </span>
-          <span className="timecode font-mono text-foreground/90">{timecode}</span>
-          <span className="text-muted/50">| campus archive, file 001</span>
+          <span className="timecode font-mono text-base md:text-xl text-foreground font-bold tracking-wider">
+            {timecode}
+          </span>
+          <span className="text-muted/60 text-xs md:text-sm">
+            | campus archive, file 001
+          </span>
         </motion.div>
 
         <motion.h1
