@@ -25,20 +25,20 @@ export default function LiveClock() {
 
   if (!time) {
     return (
-      <div className="flex items-center gap-2 rounded-full border border-border/60 bg-background-alt/60 px-3 py-1 text-xs text-muted backdrop-blur-md">
-        <span className="h-1.5 w-1.5 rounded-full bg-accent animate-pulse" />
-        <span className="font-mono text-[11px]">--:--:-- --</span>
+      <div className="flex items-center gap-2.5 rounded-full border border-border/80 bg-[#1f1b16] px-4 py-1.5 shadow-md backdrop-blur-md">
+        <span className="h-2 w-2 rounded-full bg-accent animate-pulse" />
+        <span className="font-mono text-sm tracking-wider text-muted font-medium">--:--:--</span>
       </div>
     );
   }
 
   return (
-    <div className="flex items-center gap-2 rounded-full border border-border/80 bg-background-alt/80 px-3 py-1 text-xs text-muted/90 shadow-sm backdrop-blur-md transition-colors hover:border-accent/40">
-      <span className="h-1.5 w-1.5 rounded-full bg-emerald-500 shadow-[0_0_6px_rgba(16,185,129,0.7)] animate-pulse" />
-      <span className="font-mono text-[11px] tracking-wide text-foreground/90 font-medium">
+    <div className="flex items-center gap-2.5 rounded-full border border-white/15 bg-[#1e1b17]/90 px-4 py-1.5 shadow-[0_2px_10px_rgba(0,0,0,0.5)] backdrop-blur-md transition-all hover:border-accent/60 hover:bg-[#26221d]">
+      <span className="h-2 w-2 rounded-full bg-emerald-400 shadow-[0_0_10px_rgba(52,211,153,0.9)] animate-pulse" />
+      <span className="font-mono text-[13px] tracking-wider text-white font-semibold">
         {time}
       </span>
-      <span className="hidden sm:inline text-[9px] font-mono tracking-widest text-muted/60 uppercase">
+      <span className="text-[10px] font-mono tracking-widest text-emerald-400/90 font-bold uppercase rounded bg-emerald-950/60 px-1.5 py-0.5 border border-emerald-500/20">
         IST
       </span>
     </div>
