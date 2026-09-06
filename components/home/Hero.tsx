@@ -65,9 +65,9 @@ export default function Hero() {
           initial={{ opacity: 0, y: 24 }}
           animate={{ opacity: 1, y: 0 }}
           transition={{ duration: 0.9, ease: "easeOut", delay: 0.28 }}
-          className="relative mt-8 w-full overflow-hidden rounded-2xl border border-border/70 bg-black/80 shadow-2xl backdrop-blur-md md:rounded-3xl"
+          className="relative mt-8 mb-6 w-full overflow-hidden rounded-2xl border border-border/70 bg-black shadow-2xl backdrop-blur-md md:rounded-3xl"
         >
-          <div className="relative w-full h-[55vh] sm:h-[68vh] md:h-[80vh] max-h-[850px] overflow-hidden">
+          <div className="relative aspect-[16/9] w-full overflow-hidden bg-black">
             <video
               src="https://res.cloudinary.com/dzt9fr0cw/video/upload/v1788692055/drone_shot_6_dd1fc2.mp4"
               autoPlay
@@ -77,7 +77,7 @@ export default function Hero() {
               controls
               controlsList="nodownload"
               onContextMenu={(e) => e.preventDefault()}
-              className="h-full w-full object-cover"
+              className="h-full w-full object-contain md:object-cover"
             />
             <div className="pointer-events-none absolute top-4 left-4 flex items-center gap-2.5 rounded-full bg-black/75 px-3.5 py-1.5 text-[11px] tracking-wider text-white/90 backdrop-blur-md border border-white/10">
               <span className="h-2 w-2 rounded-full bg-red-500 animate-pulse" />
