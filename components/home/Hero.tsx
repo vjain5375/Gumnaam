@@ -5,24 +5,22 @@ import { motion } from "framer-motion";
 import Button from "@/components/shared/Button";
 
 export default function Hero() {
-  const [timecode, setTimecode] = useState("00:00:04:12");
+  const [timecode, setTimecode] = useState("00:00:00:00");
+  const [isLive, setIsLive] = useState(true);
 
-  useEffect(() => {
-    let frame = 12;
-    let sec = 4;
-    const interval = setInterval(() => {
-      frame += 1;
-      if (frame >= 30) {
-        frame = 0;
-        sec += 1;
-      }
-      const s = String(sec).padStart(2, "0");
-      const f = String(frame).padStart(2, "0");
-      setTimecode(`00:00:${s}:${f}`);
-    }, 66); // ~15-20fps vintage camera ticker
+  const handleTimeUpdate = (e: React.SyntheticEvent<HTMLVideoElement>) => {
+    const current = e.currentTarget.currentTime;
+    const hours = Math.floor(current / 3600);
+    const minutes = Math.floor((current % 3600) / 60);
+    const seconds = Math.floor(current % 60);
+    const frames = Math.floor((current % 1) * 30);
 
-    return () => clearInterval(interval);
-  }, []);
+    const hh = String(hours).padStart(2, "0");
+    const mm = String(minutes).padStart(2, "0");
+    const ss = String(seconds).padStart(2, "0");
+    const ff = String(frames).padStart(2, "0");
+    setTimecode(`${hh}:${mm}:${ss}:${ff}`);
+  };
 
   return (
     <section className="relative min-h-screen overflow-hidden bg-background">
@@ -36,8 +34,10 @@ export default function Hero() {
           transition={{ duration: 0.6 }}
           className="mb-8 flex items-center gap-2 text-[11px] text-muted/80"
         >
-          <span className="rec-dot h-2 w-2 rounded-full bg-red-500 shadow-[0_0_8px_rgba(239,68,68,0.7)]" />
-          <span className="timecode font-mono font-bold tracking-wider text-red-400/90">REC</span>
+          <span className={`rec-dot h-2 w-2 rounded-full ${isLive ? "bg-red-500 shadow-[0_0_8px_rgba(239,68,68,0.7)]" : "bg-yellow-500"}`} />
+          <span className={`timecode font-mono font-bold tracking-wider ${isLive ? "text-red-400/90" : "text-yellow-400/90"}`}>
+            {isLive ? "REC" : "PAUSED"}
+          </span>
           <span className="timecode font-mono text-foreground/90">{timecode}</span>
           <span className="text-muted/50">| campus archive, file 001</span>
         </motion.div>
@@ -77,11 +77,14 @@ export default function Hero() {
               controls
               controlsList="nodownload"
               onContextMenu={(e) => e.preventDefault()}
+              onTimeUpdate={handleTimeUpdate}
+              onPlay={() => setIsLive(true)}
+              onPause={() => setIsLive(false)}
               className="h-full w-full object-contain md:object-cover"
             />
             <div className="pointer-events-none absolute top-4 left-4 flex items-center gap-2.5 rounded-full bg-black/75 px-3.5 py-1.5 text-[11px] tracking-wider text-white/90 backdrop-blur-md border border-white/10">
-              <span className="h-2 w-2 rounded-full bg-red-500 animate-pulse" />
-              <span className="font-mono text-[11px] uppercase">Campus Aerial Archive // Drone Shot</span>
+              <span className={`h-2 w-2 rounded-full ${isLive ? "bg-red-500 animate-pulse" : "bg-yellow-500"}`} />
+              <span className="font-mono text-[11px] uppercase">Campus Aerial Archive // {timecode}</span>
             </div>
           </div>
         </motion.div>

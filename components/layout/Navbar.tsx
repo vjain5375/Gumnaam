@@ -1,4 +1,5 @@
 import Link from "next/link";
+import LiveClock from "@/components/layout/LiveClock";
 
 const links = [
   { href: "/people", label: "People" },
@@ -18,17 +19,21 @@ export default function Navbar() {
         >
           Gumnaam
         </Link>
-        <nav className="hidden gap-9 text-base text-muted md:flex">
-          {links.map((link) => (
-            <Link
-              key={link.href}
-              href={link.href}
-              className="transition-colors hover:text-foreground"
-            >
-              {link.label}
-            </Link>
-          ))}
-        </nav>
+        <div className="flex items-center gap-7">
+          <nav className="hidden gap-9 text-base text-muted md:flex items-center">
+            {links.map((link) => (
+              <Link
+                key={link.href}
+                href={link.href}
+                className="transition-colors hover:text-foreground"
+              >
+                {link.label}
+              </Link>
+            ))}
+          </nav>
+          {/* Live Clock Feature on Top Right */}
+          <LiveClock />
+        </div>
       </div>
     </header>
   );
